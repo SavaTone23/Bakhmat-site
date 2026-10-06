@@ -242,8 +242,12 @@
     padding: 14px 0; border-bottom: 1px solid var(--border);
   }
   .contact-links a:hover { color: var(--teal); }
-  .cp-name { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); margin-top: 18px; }
-  .contact-links .cp-name:first-child { margin-top: 0; }
+  .cp { padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .cp-name { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+  .contact-links .cp-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+  .contact-links .cp-row a { padding: 0; border-bottom: 0; font-size: 16px; }
+  .contact-links .cp-row a.wa { padding: 5px 13px; border: 1px solid var(--teal); border-radius: 999px; font-size: 13px; color: var(--teal); }
+  .contact-links .cp-row a.wa:hover { background: var(--teal); color: var(--bg); }
   form { display: flex; flex-direction: column; gap: 12px; }
   input, textarea {
     width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: 7px;
@@ -403,12 +407,20 @@
     <h2 data-i18n="contact_title">Fale connosco</h2>
     <div class="contact-grid">
       <div class="contact-links">
-        <div class="cp-name" data-i18n="contact_kostya">Kostyantyn</div>
-        <a href="tel:+351910732514">&#9742; +351 910 732 514</a>
-        <a href="https://wa.me/351910732514" target="_blank" rel="noopener">WhatsApp — <span data-i18n="contact_whatsapp">enviar mensagem</span></a>
-        <div class="cp-name" data-i18n="contact_oleg">Oleg</div>
-        <a href="tel:+351915391627">&#9742; +351 915 391 627</a>
-        <a href="https://wa.me/351915391627" target="_blank" rel="noopener">WhatsApp — <span data-i18n="contact_whatsapp">enviar mensagem</span></a>
+        <div class="cp">
+          <div class="cp-name" data-i18n="contact_kostya">Kostyantyn</div>
+          <div class="cp-row">
+            <a href="tel:+351910732514">&#9742; +351 910 732 514</a>
+            <a class="wa" href="https://wa.me/351910732514" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+        <div class="cp">
+          <div class="cp-name" data-i18n="contact_oleg">Oleg</div>
+          <div class="cp-row">
+            <a href="tel:+351915391627">&#9742; +351 915 391 627</a>
+            <a class="wa" href="https://wa.me/351915391627" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
         <a href="mailto:bakhmatgroup@gmail.com">Email — bakhmatgroup@gmail.com</a>
       </div>
       <form id="contactForm">
