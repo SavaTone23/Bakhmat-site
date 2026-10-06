@@ -405,12 +405,15 @@
         <a href="mailto:bakhmatgroup@gmail.com">Email — bakhmatgroup@gmail.com</a>
       </div>
       <form id="contactForm">
+        <input type="hidden" name="access_key" value="f778b118-cefc-4a50-ad82-2942e23d3d2c">
+        <input type="hidden" name="subject" value="Nova mensagem do site Bakhmat Group">
+        <input type="text" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <label data-i18n="contact_name">Nome</label>
-        <input type="text" id="f-name" required>
+        <input type="text" id="f-name" name="name" required>
         <label data-i18n="contact_email">Email</label>
-        <input type="email" id="f-email" required>
+        <input type="email" id="f-email" name="email" required>
         <label data-i18n="contact_message">Mensagem</label>
-        <textarea id="f-message" required></textarea>
+        <textarea id="f-message" name="message" required></textarea>
         <button type="submit" class="btn" data-i18n="contact_submit">Enviar</button>
       </form>
     </div>
@@ -449,7 +452,8 @@
       contact_eyebrow:"Contacto", contact_title:"Fale connosco",
       contact_whatsapp:"enviar mensagem", contact_name:"Nome", contact_email:"Email", contact_message:"Mensagem", contact_submit:"Enviar",
       footer_text:"© 2026 Bakhmat Group. Todos os direitos reservados.",
-      form_sent:"Obrigado! A sua mensagem foi registada — vamos responder em breve."
+      form_sent:"Obrigado! A sua mensagem foi enviada — vamos responder em breve.",
+      form_error:"Ocorreu um erro ao enviar. Tente novamente ou escreva para bakhmatgroup@gmail.com."
     },
     ru: {
       nav_home:"Главная", nav_services:"Услуги", nav_about:"О нас", nav_contact:"Контакты",
@@ -479,7 +483,8 @@
       contact_eyebrow:"Контакты", contact_title:"Связаться с нами",
       contact_whatsapp:"написать", contact_name:"Имя", contact_email:"Email", contact_message:"Сообщение", contact_submit:"Отправить",
       footer_text:"© 2026 Bakhmat Group. Все права защищены.",
-      form_sent:"Спасибо! Сообщение зафиксировано — ответим в ближайшее время."
+      form_sent:"Спасибо! Ваше сообщение отправлено — ответим в ближайшее время.",
+      form_error:"Произошла ошибка при отправке. Попробуйте снова или напишите на bakhmatgroup@gmail.com."
     },
     ua: {
       nav_home:"Головна", nav_services:"Послуги", nav_about:"Про нас", nav_contact:"Контакти",
@@ -509,7 +514,8 @@
       contact_eyebrow:"Контакти", contact_title:"Зв'язатися з нами",
       contact_whatsapp:"написати", contact_name:"Ім'я", contact_email:"Email", contact_message:"Повідомлення", contact_submit:"Надіслати",
       footer_text:"© 2026 Bakhmat Group. Усі права захищені.",
-      form_sent:"Дякуємо! Повідомлення зафіксовано — відповімо найближчим часом."
+      form_sent:"Дякуємо! Ваше повідомлення надіслано — відповімо найближчим часом.",
+      form_error:"Сталася помилка під час надсилання. Спробуйте ще раз або напишіть на bakhmatgroup@gmail.com."
     },
     en: {
       nav_home:"Home", nav_services:"Services", nav_about:"About", nav_contact:"Contact",
@@ -539,7 +545,8 @@
       contact_eyebrow:"Contact", contact_title:"Get in touch",
       contact_whatsapp:"send a message", contact_name:"Name", contact_email:"Email", contact_message:"Message", contact_submit:"Send",
       footer_text:"© 2026 Bakhmat Group. All rights reserved.",
-      form_sent:"Thanks! Your message has been recorded — we'll get back to you soon."
+      form_sent:"Thanks! Your message has been sent — we'll get back to you soon.",
+      form_error:"Something went wrong sending your message. Please try again or email bakhmatgroup@gmail.com."
     }
   };
 
@@ -590,7 +597,32 @@
 
   document.getElementById('contactForm').addEventListener('submit', function (e) {
     e.preventDefault();
-    alert(translations[window.__lang || 'pt'].form_sent);
-    this.reset();
+    const form = this;
+    const btn = form.querySelector('button[type="submit"]');
+    const originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = '...';
+    const data = new FormData(form);
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (result.success) {
+          alert(translations[window.__lang || 'pt'].form_sent);
+          form.reset();
+        } else {
+          alert(translations[window.__lang || 'pt'].form_error);
+        }
+      })
+      .catch(() => {
+        alert(translations[window.__lang || 'pt'].form_error);
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btn.textContent = originalText;
+      });
   });
 </script>
