@@ -242,6 +242,8 @@
     padding: 14px 0; border-bottom: 1px solid var(--border);
   }
   .contact-links a:hover { color: var(--teal); }
+  .cp-name { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); margin-top: 18px; }
+  .contact-links .cp-name:first-child { margin-top: 0; }
   form { display: flex; flex-direction: column; gap: 12px; }
   input, textarea {
     width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: 7px;
@@ -401,7 +403,12 @@
     <h2 data-i18n="contact_title">Fale connosco</h2>
     <div class="contact-grid">
       <div class="contact-links">
-        <a href="https://wa.me/000000000" target="_blank" rel="noopener">WhatsApp — <span data-i18n="contact_whatsapp">enviar mensagem</span></a>
+        <div class="cp-name" data-i18n="contact_kostya">Kostyantyn</div>
+        <a href="tel:+351910732514">&#9742; +351 910 732 514</a>
+        <a href="https://wa.me/351910732514" target="_blank" rel="noopener">WhatsApp — <span data-i18n="contact_whatsapp">enviar mensagem</span></a>
+        <div class="cp-name" data-i18n="contact_oleg">Oleg</div>
+        <a href="tel:+351915391627">&#9742; +351 915 391 627</a>
+        <a href="https://wa.me/351915391627" target="_blank" rel="noopener">WhatsApp — <span data-i18n="contact_whatsapp">enviar mensagem</span></a>
         <a href="mailto:bakhmatgroup@gmail.com">Email — bakhmatgroup@gmail.com</a>
       </div>
       <form id="contactForm">
@@ -450,7 +457,7 @@
       about_text:"A Bakhmat Group nasceu da experiência internacional da nossa família em transportes e comércio. Começámos com duas áreas onde já temos experiência direta e parceiros de confiança — e é a partir daqui que continuamos a crescer.",
       stat1_num:"2", stat1_label:"áreas de atuação", stat2_num:"7", stat2_label:"países parceiros", stat3_num:"1", stat3_label:"equipa, um objetivo",
       contact_eyebrow:"Contacto", contact_title:"Fale connosco",
-      contact_whatsapp:"enviar mensagem", contact_name:"Nome", contact_email:"Email", contact_message:"Mensagem", contact_submit:"Enviar",
+      contact_kostya:"Kostyantyn", contact_oleg:"Oleg", contact_whatsapp:"enviar mensagem", contact_name:"Nome", contact_email:"Email", contact_message:"Mensagem", contact_submit:"Enviar",
       footer_text:"© 2026 Bakhmat Group. Todos os direitos reservados.",
       form_sent:"Obrigado! A sua mensagem foi enviada — vamos responder em breve.",
       form_error:"Ocorreu um erro ao enviar. Tente novamente ou escreva para bakhmatgroup@gmail.com."
@@ -481,7 +488,7 @@
       about_text:"Bakhmat Group выросла из международного опыта нашей семьи в перевозках и торговле. Мы начали с двух направлений, где у нас уже есть реальный опыт и надёжные партнёры — и именно отсюда продолжаем расти.",
       stat1_num:"2", stat1_label:"направления работы", stat2_num:"7", stat2_label:"страны-партнёры", stat3_num:"1", stat3_label:"команда, одна цель",
       contact_eyebrow:"Контакты", contact_title:"Связаться с нами",
-      contact_whatsapp:"написать", contact_name:"Имя", contact_email:"Email", contact_message:"Сообщение", contact_submit:"Отправить",
+      contact_kostya:"Константин", contact_oleg:"Олег", contact_whatsapp:"написать", contact_name:"Имя", contact_email:"Email", contact_message:"Сообщение", contact_submit:"Отправить",
       footer_text:"© 2026 Bakhmat Group. Все права защищены.",
       form_sent:"Спасибо! Ваше сообщение отправлено — ответим в ближайшее время.",
       form_error:"Произошла ошибка при отправке. Попробуйте снова или напишите на bakhmatgroup@gmail.com."
@@ -512,7 +519,7 @@
       about_text:"Bakhmat Group виросла з міжнародного досвіду нашої родини в перевезеннях і торгівлі. Ми почали з двох напрямків, де вже маємо реальний досвід і надійних партнерів — і саме звідси продовжуємо зростати.",
       stat1_num:"2", stat1_label:"напрямки роботи", stat2_num:"7", stat2_label:"країни-партнери", stat3_num:"1", stat3_label:"команда, одна мета",
       contact_eyebrow:"Контакти", contact_title:"Зв'язатися з нами",
-      contact_whatsapp:"написати", contact_name:"Ім'я", contact_email:"Email", contact_message:"Повідомлення", contact_submit:"Надіслати",
+      contact_kostya:"Костянтин", contact_oleg:"Олег", contact_whatsapp:"написати", contact_name:"Ім'я", contact_email:"Email", contact_message:"Повідомлення", contact_submit:"Надіслати",
       footer_text:"© 2026 Bakhmat Group. Усі права захищені.",
       form_sent:"Дякуємо! Ваше повідомлення надіслано — відповімо найближчим часом.",
       form_error:"Сталася помилка під час надсилання. Спробуйте ще раз або напишіть на bakhmatgroup@gmail.com."
@@ -543,7 +550,7 @@
       about_text:"Bakhmat Group grew out of our family's international experience in transport and trade. We started with two areas where we already have direct experience and trusted partners — and that's the base we keep growing from.",
       stat1_num:"2", stat1_label:"service areas", stat2_num:"7", stat2_label:"partner countries", stat3_num:"1", stat3_label:"team, one goal",
       contact_eyebrow:"Contact", contact_title:"Get in touch",
-      contact_whatsapp:"send a message", contact_name:"Name", contact_email:"Email", contact_message:"Message", contact_submit:"Send",
+      contact_kostya:"Kostyantyn", contact_oleg:"Oleg", contact_whatsapp:"send a message", contact_name:"Name", contact_email:"Email", contact_message:"Message", contact_submit:"Send",
       footer_text:"© 2026 Bakhmat Group. All rights reserved.",
       form_sent:"Thanks! Your message has been sent — we'll get back to you soon.",
       form_error:"Something went wrong sending your message. Please try again or email bakhmatgroup@gmail.com."
